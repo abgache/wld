@@ -25,11 +25,17 @@ Every time someones open your website, it will send you theses datas throught yo
 > **Source :** Unknown
 
 ### Platform Identifiers
-> [Tiktok](https://tiktok.com/) : ``tk``
-> [Instagram](https://instagram.com/) : ``ig``
-> [Discord](https://discord.com/) : ``dc``
+Platfrom identifiers are used to help you know from where the connection is, add ``?src=YOUR_PLATFORM`` at the end of the link.  
+Some are premade like:  
+> [Tiktok](https://tiktok.com/) : ``tk``  
+> [Instagram](https://instagram.com/) : ``ig``  
+> [Discord](https://discord.com/) : ``dc``  
+Example: if you add ``?src=tk`` you will see :  
+**Source :** [Tiktok](https://tiktok.com/)  
+You can add custom ones, it will send directly the id.  
+Example: if you add ``?src=CUSTOM`` you will see :  
+**Source :** ``CUSTOM``  
 
-  
 ## 2- Rate limit & Webhook safety  
 Every IP has a limit of 1 message per hour, it stops webhook spammers by sending them 429 errors (Rate limit), its only default is that it will not send the data twice if someone reloads the page (_Is it really a default?_).  
 Your webhook is only placed in your cloudflare worker's code, which you can put in private.  
