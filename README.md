@@ -22,7 +22,7 @@ Every time someones open your website, it will send you theses datas throught yo
 > **RAM (GB) :** 32  
 > **Screen :** 1920x1080  
 > **Viewport :** 1920x945  
-> **Source :** Unknown
+> **Source Link :** Unknown
 
 ### Platform Identifiers
 Platfrom identifiers are used to help you know from where the connection is, add ``?src=YOUR_PLATFORM`` at the end of the link.  
@@ -31,10 +31,10 @@ Some are premade like:
 > [Instagram](https://instagram.com/) : ``ig``  
 > [Discord](https://discord.com/) : ``dc``  
 Example: if you add ``?src=tk`` you will see :  
-**Source :** [Tiktok](https://tiktok.com/)  
+**Source Link :** [Tiktok](https://tiktok.com/)  
 You can add custom ones, it will send directly the id.  
 Example: if you add ``?src=CUSTOM`` you will see :  
-**Source :** ``CUSTOM``  
+**Source Link :** ``CUSTOM``  
 
 ## 2- Rate limit & Webhook safety  
 Every IP has a limit of 1 message per hour, it stops webhook spammers by sending them 429 errors (Rate limit), its only default is that it will not send the data twice if someone reloads the page (_Is it really a default?_).  
