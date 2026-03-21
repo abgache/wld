@@ -22,6 +22,13 @@ Every time someones open your website, it will send you theses datas throught yo
 > **RAM (GB) :** 32  
 > **Screen :** 1920x1080  
 > **Viewport :** 1920x945  
+> **Source :** Unknown
+
+### Platform Identifiers
+> [Tiktok](https://tiktok.com/) : ``tk``
+> [Instagram](https://instagram.com/) : ``ig``
+> [Discord](https://discord.com/) : ``dc``
+
   
 ## 2- Rate limit & Webhook safety  
 Every IP has a limit of 1 message per hour, it stops webhook spammers by sending them 429 errors (Rate limit), its only default is that it will not send the data twice if someone reloads the page (_Is it really a default?_).  
@@ -34,20 +41,28 @@ And after that click on deploy.
 ### 2- Add the tracker to your website
 Add this HTML bloc in the ``<head>`` part of your website:  
 ```html
-<script>
+ <script>
     (async () => {
       try {
-        const deviceInfo = {platform: navigator.platform,userAgent: navigator.userAgent,language: navigator.language,timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,cores: navigator.hardwareConcurrency || "Unknown",memoryGB: navigator.deviceMemory || "Unknown",screenResolution: `${screen.width}x${screen.height}`,
-      viewport: `${window.innerWidth}x${window.innerHeight}`,
-      gpu: (() => {
-        try {
-          const canvas = document.createElement("canvas");
-          const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-          if (!gl) return "Unknown";
-          const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
-          return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "Unknown";
-        } catch { return "Unknown"; }
-      })()
+          const params = new URLSearchParams(window.location.search);
+        const deviceInfo = {platform: navigator.platform,
+                            userAgent: navigator.userAgent,
+                            language: navigator.language,
+                            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                            cores: navigator.hardwareConcurrency || "Unknown",
+                            memoryGB: navigator.deviceMemory || "Unknown",
+                            screenResolution: `${screen.width}x${screen.height}`,
+                            source_deviceInfo: params.get("src") || "Unknown",
+                            viewport: `${window.innerWidth}x${window.innerHeight}`,
+                            gpu: (() => {
+                              try {
+                                const canvas = document.createElement("canvas");
+                                const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+                                if (!gl) return "Unknown";
+                                const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+                                return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "Unknown";
+                              } catch { return "Unknown"; }
+                            })()
     };
 
     await fetch("https://data.your_cloudflare_username.workers.dev", {
@@ -59,7 +74,7 @@ Add this HTML bloc in the ``<head>`` part of your website:
       body: JSON.stringify({ source: window.location.hostname, deviceInfo })
     });
   } catch (err) {
-    console.error("Error while sending activity :", err);
+    console.error("Erreur en envoyant l'activité :", err);
   }
 })();
 </script>
