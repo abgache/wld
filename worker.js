@@ -70,6 +70,26 @@ export default {
       source_link = "[Instagram](https://instagram.com/)";}
     else if (source_link==="dc"){
       source_link = "[Discord](https://discord.com/)";}
+    else if (source_link==="yt"){
+      source_link = "[Youtube](https://youtube.com/)";}
+    else if (source_link==="x"){
+      source_link = "[X](https://x.com/)";}
+    else if (source_link==="fb"){
+      source_link = "[Facebook](https://facebook.com/)";}
+    else if (source_link==="rd"){
+      source_link = "[Reddit](https://reddit.com/)";}
+    else if (source_link==="sc"){
+      source_link = "[SnapChat](https://snapchat.com/)";}
+    else if (source_link==="tg"){
+      source_link = "[Telegram](https://web.telegram.org/)";}
+    else if (source_link==="wa"){
+      source_link = "[WhatsApp](https://web.whatsapp.com/)";}
+    else if (source_link==="gh"){
+      source_link = "[Github](https://github.com/)";}
+    else if (source_link==="pt"){
+      source_link = "[Pinterest](https://pinterest.com/)";}
+    else if (source_link==="ln"){
+      source_link = "[LinkedIn](https://linkedin.com/)";}
 
     await env.LOGS.put(key, JSON.stringify({ 
       ip, time: formattedDate, source, country, city, asn, asOrg, ua,

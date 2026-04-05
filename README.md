@@ -30,6 +30,16 @@ Some are premade like:
 > [Tiktok](https://tiktok.com/) : ``tk``  
 > [Instagram](https://instagram.com/) : ``ig``  
 > [Discord](https://discord.com/) : ``dc``  
+> [Youtube](https://youtube.com/) : ``yt``  
+> [X](https://x.com/) : ``x``  
+> [Facebook](https://facebook.com/) : ``fb``  
+> [Reddit](https://reddit.com/) : ``rd``  
+> [SnapChat](https://snapchat.com/) : ``sc``  
+> [Telegram](https://web.telegram.org/) : ``tg``  
+> [WhatsApp](https://web.whatsapp.com/) : ``wa``  
+> [Github](https://github.com/) : ``gh``  
+> [Pinterest](https://pinterest.com/) : ``pt``  
+> [LinkedIn](https://linkedin.com/) : ``ln``  
 Example: if you add ``?src=tk`` you will see :  
 **Source Link :** [Tiktok](https://tiktok.com/)  
 You can add custom ones, it will send directly the id.  
