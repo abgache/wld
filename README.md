@@ -40,6 +40,7 @@ Some are premade like:
 > [Github](https://github.com/) : ``gh``  
 > [Pinterest](https://pinterest.com/) : ``pt``  
 > [LinkedIn](https://linkedin.com/) : ``ln``  
+
 Example: if you add ``?src=tk`` you will see :  
 **Source Link :** [Tiktok](https://tiktok.com/)  
 You can add custom ones, it will send directly the id.  
