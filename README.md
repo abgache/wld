@@ -22,7 +22,7 @@ Every time someones open your website, it will send you theses datas throught yo
 > **RAM (GB) :** 32  
 > **Screen :** 1920x1080  
 > **Viewport :** 1920x945  
-> **Source Link :** Unknown
+> **Platform Id :** Unknown
 
 ### Platform Identifiers
 Platfrom identifiers are used to help you know from where the connection is, add ``?src=YOUR_PLATFORM`` at the end of the link.  

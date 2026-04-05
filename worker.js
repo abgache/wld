@@ -63,13 +63,13 @@ export default {
     const memoryGB = deviceInfo.memoryGB || "Unknown";
     const screenResolution = deviceInfo.screenResolution || "Unknown";
     const viewport = deviceInfo.viewport || "Unknown";
-    const source_link = deviceInfo.source_deviceInfo || "Unknown";
+    let source_link = deviceInfo.source_deviceInfo || "Unknown";
     if (source_link==="tk"){
-      const source_link = "[Tiktok](https://tiktok.com/)";}
+      source_link = "[Tiktok](https://tiktok.com/)";}
     else if (source_link==="ig"){
-      const source_link = "[Instagram](https://instagram.com/)";}
+      source_link = "[Instagram](https://instagram.com/)";}
     else if (source_link==="dc"){
-      const source_link = "[Discord](https://discord.com/)";}
+      source_link = "[Discord](https://discord.com/)";}
 
     await env.LOGS.put(key, JSON.stringify({ 
       ip, time: formattedDate, source, country, city, asn, asOrg, ua,
@@ -105,7 +105,7 @@ export default {
 - **RAM (GB) :** ${memoryGB}
 - **Screen :** ${screenResolution}
 - **Viewport :** ${viewport}
-- **Source Link :** ${source_link}`
+- **Platform Id :** ${source_link}`
           }
         ]
       })
