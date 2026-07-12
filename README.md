@@ -1,4 +1,4 @@
-# WLD V1  
+# WLD V1.2  
 -# The best open-source website tracker/logger for your website.  
 
 ## 1- Received data  
@@ -55,46 +55,12 @@ Your webhook is only placed in your cloudflare worker's code, which you can put 
 Go to [Cloudflare](https://dash.cloudflare.com/), create an account or connect to your account, create a new Hello World worker call it data.your_username.workers.dev and paste the ``worker.js`` into it and change the discord webhook to yours.  
 After that create a new Worker KV, name it logs and create a biding in your data worker to this KV (<!> If you do not call it ``LOGS``, the script will NOT work!).  
 And after that click on deploy.  
+### 3- Upload the tracker's code
+Upload the ``tracker.js`` file to your root website's file directory.  
 ### 2- Add the tracker to your website
-Add this HTML bloc in the ``<head>`` part of your website:  
+Add this HTML bloc in the ``<head>`` part of your website (on every page you want the tracker to be enabled on):  
 ```html
- <script>
-    (async () => {
-      try {
-          const params = new URLSearchParams(window.location.search);
-        const deviceInfo = {platform: navigator.platform,
-                            userAgent: navigator.userAgent,
-                            language: navigator.language,
-                            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                            cores: navigator.hardwareConcurrency || "Unknown",
-                            memoryGB: navigator.deviceMemory || "Unknown",
-                            screenResolution: `${screen.width}x${screen.height}`,
-                            source_deviceInfo: params.get("src") || "Unknown",
-                            viewport: `${window.innerWidth}x${window.innerHeight}`,
-                            gpu: (() => {
-                              try {
-                                const canvas = document.createElement("canvas");
-                                const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-                                if (!gl) return "Unknown";
-                                const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
-                                return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "Unknown";
-                              } catch { return "Unknown"; }
-                            })()
-    };
-
-    await fetch("https://data.your_cloudflare_username.workers.dev", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Auth": "SECRET"
-      },
-      body: JSON.stringify({ source: window.location.hostname, deviceInfo })
-    });
-  } catch (err) {
-    console.error("Erreur en envoyant l'activité :", err);
-  }
-})();
-</script>
+<script src="tracker.js" defer></script>
 ```
 And do not forget to change the worker's URL to yours!  
 
