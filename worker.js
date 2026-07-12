@@ -107,12 +107,12 @@ export default {
             title: "📌 New activity in the website",
             color: 918770,
             description: `-# Made by [abgache](https://abgache.ink/)\n- **IP :** \`${ip}\`
-- **Heure :** ${formattedDate}
+- **Hour :** ${formattedDate}
 - **Source :** \`${source}\`
-- **Pays :** ${country}
-- **Ville :** ${city}
+- **Country :** ${country}
+- **City :** ${city}
 - **ASN :** ${asn}
-- **Organisation :** ${asOrg}
+- **Organization :** ${asOrg}
 - **User-Agent :** \`${ua}\`
 - **Platform :** ${platform}
 - **OS :** ${os}
